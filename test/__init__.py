@@ -1,3 +1,5 @@
 # -*- coding:utf-8 -*-
-a=u'汗'
-print len(a)
+import numpy as np
+iris_feature = '花萼长度', '花萼宽度', '花瓣长度', '花瓣宽度'
+print iris_feature
+print '%%'

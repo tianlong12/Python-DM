@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding:utf-8 -*-
-
+#**********本测试主要查看Lasso与Ridge的区别
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -22,8 +22,9 @@ if __name__ == "__main__":
     # print x_train, y_train
     model = Lasso()
     # model = Ridge()
-
+    #创建等比数列
     alpha_can = np.logspace(-3, 2, 10)
+    #交叉验证，5折验证
     lasso_model = GridSearchCV(model, param_grid={'alpha': alpha_can}, cv=5)
     lasso_model.fit(x, y)
     print '验证参数：\n', lasso_model.best_params_

@@ -53,8 +53,11 @@ if __name__ == "__main__":
     plt.plot(data['TV'], y, 'ro', label='TV')
     plt.plot(data['Radio'], y, 'g^', label='Radio')
     plt.plot(data['Newspaper'], y, 'mv', label='Newspaer')
+    #图例在右下方
     plt.legend(loc='lower right')
+    #显示网格
     plt.grid()
+    #打印
     plt.show()
     # #
     # # 绘制2
@@ -73,8 +76,8 @@ if __name__ == "__main__":
     # plt.grid()
     # plt.tight_layout()
     # plt.show()
-
-    x_train, x_test, y_train, y_test = train_test_split(x, y, random_state=1)
+    #test_size为测试数据所占的比例，random_state是随机数种子，1表示每次运行程序随机数都是一样的，如果为0或者不填那么随机数每次运行就不一样
+    x_train, x_test, y_train, y_test = train_test_split(x, y,  random_state=1)
     # print x_train, y_train
     linreg = LinearRegression()
     model = linreg.fit(x_train, y_train)
@@ -86,7 +89,7 @@ if __name__ == "__main__":
     mse = np.average((y_hat - np.array(y_test)) ** 2)  # Mean Squared Error
     rmse = np.sqrt(mse)  # Root Mean Squared Error
     print mse, rmse
-
+    #比较测试数据与预测数据的差别，t为等差数列，方便显示数据而已，无意义。
     t = np.arange(len(x_test))
     plt.plot(t, y_test, 'r-', linewidth=2, label='Test')
     plt.plot(t, y_hat, 'g-', linewidth=2, label='Predict')
